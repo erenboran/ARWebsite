@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="minar-image.prod.js"></script>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="src/ui/minar-image-aframe.prod.js"></script>
+    <script src="hehe.js"></script>
+  </head>
+  <style>
+    .instagram-button {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 100;
+      border: none;;
+      background-color: transparent;
+    }
+
+    .whatsapp-button {
+      position: fixed;
+      top: 10px;
+      right: 70px;
+      z-index: 100;
+      border: none;
+      background-color: transparent;
+    }
+    
+    .call-button {
+      position: fixed;
+      top: 70px;
+      right: 70px;
+      z-index: 100;
+      border: none;
+      background-color: transparent;
+
+    }
+    
+    .website-button {
+      position: fixed;
+      top: 70px;
+      right: 10px;
+      z-index: 100;
+      border: none;
+      background-color: transparent;
+
+    }
+  </style>
+  <body>
+    <a-scene mindar-image="imageTargetSrc:onurm.mind" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false" mindar-image="filterMinCF:0.1; filterBeta: 10" mindar-image="missTolerance: 1"/>
+      <a-assets>
+        <img id="card" src="onurcpng.png" />
+        <img id="instagram-icon" src="instagram.png" />
+        <img id="facebook-icon" src="facebook.png" />
+        <img id="call-icon" src="call.png" />
+        <a-asset-item id="onurModel" src="onurModel.gltf"></a-asset-item>
+      </a-assets>
+
+      <a-camera position="0 0 0" look-controls="enabled: false">
+        <a-cursor
+          raycaster="objects: .clickable"
+          fuse="false"
+          timeout="1500"
+          position="0 0 -1"
+          geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+          material="color: black; shader: flat"
+        ></a-cursor>
+      </a-camera>
+            
+      <a-entity mindar-image-target="targetIndex: 0">
+        <a-plane src="#card" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+        <a-gltf-model rotation="90 0 0" position="0.4 0 0.3" scale="0.4 0.4 0.4" src="#onurModel" animation="property: position; to: 0.4 0.1 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate">
+        </a-entity>
+    </a-scene>
+    <body>
+      <button class="instagram-button" onclick="window.open('https://www.instagram.com', '_blank')">
+        <img src="instagram.png" alt="Instagram Icon" width="50" height="50" />
+      </button>
+      <button class="whatsapp-button" onclick="window.open('https://wa.me/+905369580210/?text=İyi Günler', '_blank')">
+         <img src="whatsapp.png" alt="whatsapp Icon" width="50" height="50" />
+      <button class="website-button" onclick="window.open('http://onay-yazilim.com/', '_blank')">
+          <img src="web.png" alt="Web Icon" width="50" height="50" />
+      <button class="call-button" onclick="window.open('tel:1234567890', '_blank')">
+          <img src="call.png" alt="Call Icon" width="50" height="50" />
+      </button>
+  </body>
+</html>
